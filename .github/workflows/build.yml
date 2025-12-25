@@ -1,0 +1,93 @@
+name: Build decNumber for CMS370
+
+on: [push]
+
+jobs:
+
+#**************************************************#
+  build-cms370:
+    name: Build for CMS370
+    runs-on: [ubuntu-latest]
+    container: rosspatterson/vm370:builder
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+      with:
+        persist-credentials: false
+
+    - name: Move source
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p /opt/hercules/vm370/io
+        cp -r * /opt/hercules/vm370/io
+        chmod -R a+rw /opt/hercules/vm370/io
+        chmod a+x /opt/hercules/vm370/io/cms370/*.sh
+        dos2unix /opt/hercules/vm370/io/cms370/*.sh
+
+    - name: Build
+      shell: bash
+      working-directory: /opt/hercules/vm370
+      run: |
+        set -euo pipefail
+        . /usr/local/hercules/setup.sh
+        hercules -f hercules.conf -d >/dev/null 2>/dev/null &
+        cd io
+        echo "Running CMSBUILD"
+        ./cms370/cmsbuild.sh
+
+    - name: Get release artifacts
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir release_artifacts
+        cp /opt/hercules/vm370/io/decnums.vmarc release_artifacts
+        cp /opt/hercules/vm370/io/decnumb.vmarc release_artifacts
+        chmod -R ugo+r release_artifacts
+
+    - name: Upload release artifacts
+      uses: actions/upload-artifact@v7
+      with:
+        name: release_artifacts
+        path: ./release_artifacts
+        if-no-files-found: error
+
+#**************************************************#
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    name: Release
+    needs: [build-cms370]
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Get release artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: release_artifacts
+          path: release_artifacts
+
+      - name: ZIP CMS binary
+        run: |
+          cd release_artifacts
+          zip ../decNumber.zip *
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: true
+          prerelease: true
+
+      - name: Upload release assets
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./decNumber.zip
+          asset_name: decNumber.zip
+          asset_content_type: application/zip

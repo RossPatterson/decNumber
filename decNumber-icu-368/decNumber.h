@@ -23,6 +23,10 @@
   #define DECFULLNAME "Decimal Number Module"         /* Verbose name */
   #define DECAUTHOR   "Mike Cowlishaw"                /* Who to blame */
 
+  #if defined(CMS) || defined(__CMS__)
+    #include "decCMS.h"
+  #endif
+
   #if !defined(DECCONTEXT)
     #include "decContext.h"
   #endif

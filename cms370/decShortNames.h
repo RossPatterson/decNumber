@@ -1,0 +1,350 @@
+/* ------------------------------------------------------------------ */
+/* decShortNames.h -- Short external names header                     */
+/* ------------------------------------------------------------------ */
+/* Copyright (c) Ross Patterson 2026.                                 */
+/*                                                                    */
+/* This addition to the decNumber library is dedicated to the public  */
+/* domain.                                                            */
+/* ------------------------------------------------------------------ */
+#if !defined(DECSHORTNAMES)
+  #define decSHORTNAMES
+
+  #define decSHORTNAMENAME     "DECSHORTNAMES"        /* Short name   */
+  #define decSHORTNAMETITLE    "Short external names" /* Verbose name */
+  #define decSHORTNAMEAUTHOR   "Ross Patterson"       /* Who to blame */
+
+  /* Some systems require function names to be unique in the first 8
+   * characters, so we need to rename all the functions in the package.
+   */
+
+  /* decBasic.c */
+  #define DECTESTMSD                          DNTSTMSD
+
+  /* decNumber.c */
+  #define LNnn                                dnLNnn
+
+  /* decCommon.c */
+  #define DECCOMBEXP                          DNCMEXP
+  #define DECCOMBWEXP                         DNCMWEXP
+  #define DECCOMBMSD                          DNCMMSD
+  #define DECCOMBFROM                         DNCMFROM
+
+  /* decContext.c */
+  #define DECSTICKYTAB                        DNSTKYTB
+  #define DECPOWERS                           DNPOWERS
+
+  /* decContext.h */
+  #define decContextClearStatus               dnCClrSt
+  #define decContextDefault                   dnCDef
+  #define decContextGetRounding               dnCGRnd
+  #define decContextGetStatus                 dnCGSt
+  #define decContextRestoreStatus             dnCRsSt
+  #define decContextSaveStatus                dnCSvSt
+  #define decContextSetRounding               dnCSRnd
+  #define decContextSetStatus                 dnCSS
+  #define decContextSetStatusFromString       dnCSSFS
+  #define decContextSetStatusFromStringQuiet  dnCSSFSQ
+  #define decContextSetStatusQuiet            dnCSSQ
+  #define decContextStatusToString            dnCSTS
+  #define decContextTestEndian                dnCTEnd
+  #define decContextTestSavedStatus           dnCTSvSt
+  #define decContextTestStatus                dnCTSt
+  #define decContextZeroStatus                dnCZSt
+
+  /* decDouble.h */
+  #define decDoubleFromBCD                    dnDFBCD
+  #define decDoubleFromInt32                  dnDFI
+  #define decDoubleFromPacked                 dnDFP
+  #define decDoubleFromPackedChecked          dnDFPCk
+  #define decDoubleFromString                 dnDFS
+  #define decDoubleFromUInt32                 dnDFUI
+  #define decDoubleFromWider                  dnDFW
+  #define decDoubleGetCoefficient             dnDGCoef
+  #define decDoubleGetExponent                dnDGExp
+  #define decDoubleSetCoefficient             dnDSCoef
+  #define decDoubleSetExponent                dnDSExp
+  #define decDoubleShow                       dnDShow
+  #define decDoubleToBCD                      dnDTBCD
+  #define decDoubleToEngString                dnDTEnS
+  #define decDoubleToInt32                    dnDTI
+  #define decDoubleToInt32Exact               dnDTIE
+  #define decDoubleToPacked                   dnDTP
+  #define decDoubleToString                   dnDTS
+  #define decDoubleToUInt32                   dnDTUI
+  #define decDoubleToUInt32Exact              dnDTUIE
+  #define decDoubleToWider                    dnDTW
+  #define decDoubleZero                       dnDZ
+  #define decDoubleAbs                        dnDAbs
+  #define decDoubleAdd                        dnDAdd
+  #define decDoubleAnd                        dnDAnd
+  #define decDoubleDivide                     dnDDv
+  #define decDoubleDivideInteger              dnDDvInt
+  #define decDoubleFMA                        dnDFMA
+  #define decDoubleInvert                     dnDInv
+  #define decDoubleLogB                       dnDLogB
+  #define decDoubleMax                        dnDMax
+  #define decDoubleMaxMag                     dnDMaxMg
+  #define decDoubleMin                        dnDMin
+  #define decDoubleMinMag                     dnDMinMg
+  #define decDoubleMinus                      dnDMinus
+  #define decDoubleMultiply                   dnDMult
+  #define decDoubleNextMinus                  dnDNMin
+  #define decDoubleNextPlus                   dnDNPlus
+  #define decDoubleNextToward                 dnDNTwd
+  #define decDoubleOr                         dnDOr
+  #define decDoublePlus                       dnDPlus
+  #define decDoubleQuantize                   dnDQuant
+  #define decDoubleReduce                     dnDRdce
+  #define decDoubleRemainder                  dnDRem
+  #define decDoubleRemainderNear              dnDRemNr
+  #define decDoubleRotate                     dnDRot
+  #define decDoubleScaleB                     dnDSclB
+  #define decDoubleShift                      dnDShift
+  #define decDoubleSubtract                   dnDSub
+  #define decDoubleToIntegralValue            dnDTIntV
+  #define decDoubleToIntegralExact            dnDTIntE
+  #define decDoubleXor                        dnDXor
+  #define decDoubleCompare                    dnDComp
+  #define decDoubleCompareSignal              dnDCompS
+  #define decDoubleCompareTotal               dnDCTtl
+  #define decDoubleCompareTotalMag            dnDCTtlM
+  #define decDoubleCanonical                  dnDCanon
+  #define decDoubleCopy                       dnDCp
+  #define decDoubleCopyAbs                    dnDCpAbs
+  #define decDoubleCopyNegate                 dnDCpNeg
+  #define decDoubleCopySign                   dnDCpSn
+  #define decDoubleClass                      dnDClas
+  #define decDoubleClassString                dnDClasS
+  #define decDoubleDigits                     dnDDgts
+  #define decDoubleIsCanonical                dnDIsCan
+  #define decDoubleIsFinite                   dnDIsFin
+  #define decDoubleIsInfinite                 dnDIsInf
+  #define decDoubleIsInteger                  dnDIsI
+  #define decDoubleIsLogical                  dnDIsLog
+  #define decDoubleIsNaN                      dnDIsNaN
+  #define decDoubleIsNegative                 dnDIsNeg
+  #define decDoubleIsNormal                   dnDIsNrm
+  #define decDoubleIsPositive                 dnDIsPos
+  #define decDoubleIsSignaling                dnDIsSig
+  #define decDoubleIsSignalling               dnDIsSgl
+  #define decDoubleIsSigned                   dnDIsSnd
+  #define decDoubleIsSubnormal                dnDIsSnm
+  #define decDoubleIsZero                     dnDIsZ
+  #define decDoubleRadix                      dnDRadix
+  #define decDoubleSameQuantum                dnDSameQ
+  #define decDoubleVersion                    dnDVers
+
+  /* decDPD.h */
+  #define BCD2DPD                             DNDPBC2D
+  #define BIN2BCD8                            DNDPB2B8
+  #define BIN2CHAR                            DNDPB2C
+  #define BIN2DPD                             DNDPB2D
+  #define DPD2BCD                             DNDPD2BC
+  #define DPD2BCD8                            DNDPD2B8
+  #define DPD2BIN                             DNDPD2B
+  #define DPD2BINK                            DNDPD2BK
+  #define DPD2BINM                            DNDPD2BM
+
+  /* decimal128.h */
+  #define decimal128FromString                dn128FS
+  #define decimal128ToString                  dn128TS
+  #define decimal128ToEngString               dn128TES
+  #define decimal128FromNumber                dn128FNm
+  #define decimal128ToNumber                  dn128TNm
+  #define decimal128IsCanonical               dn128IsCn
+  #define decimal128Canonical                 dn128Can
+
+  /* decimal32.h */
+  #define decimal32FromString                 dn32FS
+  #define decimal32ToString                   dn32TS
+  #define decimal32ToEngString                dn32TES
+  #define decimal32FromNumber                 dn32FNm
+  #define decimal32ToNumber                   dn32TNm
+  #define decimal32IsCanonical                dn32IsCn
+  #define decimal32Canonical                  dn32Can
+
+  /* decimal64.h */
+  #define decimal64FromString                 dn64FS
+  #define decimal64ToString                   dn64TS
+  #define decimal64ToEngString                dn64TES
+  #define decimal64FromNumber                 dn64FNm
+  #define decimal64ToNumber                   dn64TNm
+  #define decimal64IsCanonical                dn64IsCn
+  #define decimal64Canonical                  dn64Can
+
+  /* decimal64.c */
+  #define BIN2DPDx                            DN64B2D
+  #define DPD2BINx                            DN64D2B
+  #define decDigitsFromDPD                    dnDFDPD
+  #define decDigitsToDPD                      dnDTDPD
+
+  /* decNumber.h */
+  #define decNumberFromInt32                  dnNFI
+  #define decNumberFromUInt32                 dnNFUI
+  #define decNumberFromString                 dnNFS
+  #define decNumberToString                   dnNTS
+  #define decNumberToEngString                dnNTEngS
+  #define decNumberToUInt32                   dnNTUI
+  #define decNumberToInt32                    dnNTI
+  #define decNumberGetBCD                     dnNGBCD
+  #define decNumberSetBCD                     dnNSBCD
+  #define decNumberAbs                        dnNAbs
+  #define decNumberAdd                        dnNAdd
+  #define decNumberAnd                        dnNAnd
+  #define decNumberCompare                    dnNC
+  #define decNumberCompareSignal              dnNCSig
+  #define decNumberCompareTotal               dnNCTot
+  #define decNumberCompareTotalMag            dnNCTotM
+  #define decNumberDivide                     dnNDiv
+  #define decNumberDivideInteger              dnNDivI
+  #define decNumberExp                        dnNExp
+  #define decNumberFMA                        dnNFMA
+  #define decNumberInvert                     dnNInv
+  #define decNumberLn                         dnNLn
+  #define decNumberLogB                       dnNLogB
+  #define decNumberLog10                      dnNLog10
+  #define decNumberMax                        dnNMax
+  #define decNumberMaxMag                     dnNMaxMg
+  #define decNumberMin                        dnNMin
+  #define decNumberMinMag                     dnNMinMg
+  #define decNumberMinus                      dnNMinus
+  #define decNumberMultiply                   dnNMult
+  #define decNumberNormalize                  dnNNorm
+  #define decNumberOr                         dnNOr
+  #define decNumberPlus                       dnNPlus
+  #define decNumberPower                      dnNPower
+  #define decNumberQuantize                   dnNQuant
+  #define decNumberReduce                     dnNRdce
+  #define decNumberRemainder                  dnNRem
+  #define decNumberRemainderNear              dnNRemNr
+  #define decNumberRescale                    dnNRescl
+  #define decNumberRotate                     dnNRot
+  #define decNumberSameQuantum                dnNSameQ
+  #define decNumberScaleB                     dnNSclB
+  #define decNumberShift                      dnNShift
+  #define decNumberSquareRoot                 dnNSquRt
+  #define decNumberSubtract                   dnNSub
+  #define decNumberToIntegralExact            dnNTIntE
+  #define decNumberToIntegralValue            dnNTIntV
+  #define decNumberXor                        dnNXor
+  #define decNumberClass                      dnNClass
+  #define decNumberClassToString              dnNClsTS
+  #define decNumberCopy                       dnNCp
+  #define decNumberCopyAbs                    dnNCpAbs
+  #define decNumberCopyNegate                 dnNCpNeg
+  #define decNumberCopySign                   dnNCpSn
+  #define decNumberNextMinus                  dnNNMin
+  #define decNumberNextPlus                   dnNNPlus
+  #define decNumberNextToward                 dnNNTwd
+  #define decNumberTrim                       dnNTrim
+  #define decNumberVersion                    dnNVers
+  #define decNumberZero                       dnNZ
+  #define decNumberIsNormal                   dnNIsNrm
+  #define decNumberIsSubnormal                dnNIsSnm
+
+  /* decPacked.h */
+  #define decPackedFromNumber                 dnPFNum
+  #define decPackedToNumber                   dnPTNum
+
+  /* decQuad.h */
+  #define decQuadFromBCD                      dnQFBCD
+  #define decQuadFromInt32                    dnQFI
+  #define decQuadFromPacked                   dnQFP
+  #define decQuadFromPackedChecked            dnQFPCk
+  #define decQuadFromString                   dnQFS
+  #define decQuadFromUInt32                   dnQFUI
+  #define decQuadGetCoefficient               dnQGCoef
+  #define decQuadGetExponent                  dnQGExp
+  #define decQuadSetCoefficient               dnQSCoef
+  #define decQuadSetExponent                  dnQSExp
+  #define decQuadShow                         dnQShow
+  #define decQuadToBCD                        dnQTBCD
+  #define decQuadToEngString                  dnQTEngS
+  #define decQuadToInt32                      dnQTI
+  #define decQuadToInt32Exact                 dnQTIE
+  #define decQuadToPacked                     dnQTP
+  #define decQuadToString                     dnQTS
+  #define decQuadToUInt32                     dnQTUI
+  #define decQuadToUInt32Exact                dnQTUIE
+  #define decQuadZero                         dnQZ
+  #define decQuadAbs                          dnQAbs
+  #define decQuadAdd                          dnQAdd
+  #define decQuadAnd                          dnQAnd
+  #define decQuadDivide                       dnQDivi
+  #define decQuadDivideInteger                dnQDiviI
+  #define decQuadFMA                          dnQFMA
+  #define decQuadInvert                       dnQInv
+  #define decQuadLogB                         dnQLogB
+  #define decQuadMax                          dnQMax
+  #define decQuadMaxMag                       dnQMaxMg
+  #define decQuadMin                          dnQMin
+  #define decQuadMinMag                       dnQMinMg
+  #define decQuadMinus                        dnQMinus
+  #define decQuadMultiply                     dnQMult
+  #define decQuadNextMinus                    dnQNMin
+  #define decQuadNextPlus                     dnQNPlus
+  #define decQuadNextToward                   dnQNTwd
+  #define decQuadOr                           dnQOr
+  #define decQuadPlus                         dnQPlus
+  #define decQuadQuantize                     dnQQuant
+  #define decQuadReduce                       dnQRdce
+  #define decQuadRemainder                    dnQRem
+  #define decQuadRemainderNear                dnQRemNr
+  #define decQuadRotate                       dnQRot
+  #define decQuadScaleB                       dnQSclB
+  #define decQuadShift                        dnQShift
+  #define decQuadSubtract                     dnQSub
+  #define decQuadToIntegralValue              dnQTIntV
+  #define decQuadToIntegralExact              dnQTIntE
+  #define decQuadXor                          dnQXor
+  #define decQuadCompare                      dnQC
+  #define decQuadCompareSignal                dnQCSig
+  #define decQuadCompareTotal                 dnQCTtl
+  #define decQuadCompareTotalMag              dnQCTMg
+  #define decQuadCanonical                    dnQCanon
+  #define decQuadCopy                         dnQCp
+  #define decQuadCopyAbs                      dnQCpAbs
+  #define decQuadCopyNegate                   dnQCpNeg
+  #define decQuadCopySign                     dnQCpSn
+  #define decQuadClass                        dnQClass
+  #define decQuadClassString                  dnQClsS
+  #define decQuadDigits                       dnQDgts
+  #define decQuadIsCanonical                  dnQIsCan
+  #define decQuadIsFinite                     dnQIsFin
+  #define decQuadIsInteger                    dnQIsI
+  #define decQuadIsLogical                    dnQIsLog
+  #define decQuadIsInfinite                   dnQIsInf
+  #define decQuadIsNaN                        dnQIsNaN
+  #define decQuadIsNegative                   dnQIsNeg
+  #define decQuadIsNormal                     dnQIsNrm
+  #define decQuadIsPositive                   dnQIsPos
+  #define decQuadIsSignaling                  dnQIsSig
+  #define decQuadIsSignalling                 dnQIsSgl
+  #define decQuadIsSigned                     dnQIsSn
+  #define decQuadIsSubnormal                  dnQIsSnm
+  #define decQuadIsZero                       dnQIsZ
+  #define decQuadRadix                        dnQRadix
+  #define decQuadSameQuantum                  dnQSameQ
+  #define decQuadVersion                      dnQVers
+
+  /* decSingle.h */
+  #define decSingleFromBCD                    dnSFBCD
+  #define decSingleFromPacked                 dnSFP
+  #define decSingleFromPackedChecked          dnSFPCk
+  #define decSingleFromString                 dnSFS
+  #define decSingleFromWider                  dnSFW
+  #define decSingleGetCoefficient             dnSGCoef
+  #define decSingleGetExponent                dnSGExp
+  #define decSingleSetCoefficient             dnSSCoef
+  #define decSingleSetExponent                dnSSExp
+  #define decSingleShow                       dnSShow
+  #define decSingleToBCD                      dnSTBCD
+  #define decSingleToEngString                dnSTEngS
+  #define decSingleToPacked                   dnSTP
+  #define decSingleToString                   dnSTS
+  #define decSingleToWider                    dnSTW
+  #define decSingleZero                       dnSZ
+  #define decSingleRadix                      dnSRadix
+  #define decSingleVersion                    dnSVers
+
+#endif

@@ -41,6 +41,10 @@
   #define DECCFULLNAME "Decimal Context Descriptor"   /* Verbose name */
   #define DECCAUTHOR   "Mike Cowlishaw"               /* Who to blame */
 
+  #if defined(CMS) || defined(__CMS__)
+    #include "decCMS.h"
+  #endif
+
   #if !defined(int32_t)
     #include <stdint.h>            /* C99 standard integers           */
   #endif

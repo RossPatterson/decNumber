@@ -11,6 +11,7 @@
 //     and: decNumber.c decimal128.c decimal64.c
 
 #include "decQuad.h"               // decQuad library
+#undef DECNUMDIGITS
 #include "decimal128.h"            // interface to decNumber
 #include <stdio.h>                 // for printf
 

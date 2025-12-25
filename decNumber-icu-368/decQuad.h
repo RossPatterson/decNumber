@@ -26,6 +26,10 @@
   #define DECQUADTITLE        "Decimal 128-bit datum" /* Verbose name */
   #define DECQUADAUTHOR       "Mike Cowlishaw"        /* Who to blame */
 
+  #if defined(CMS) || defined(__CMS__)
+    #include "decCMS.h"
+  #endif
+
   /* parameters for decQuads */
   #define DECQUAD_Bytes    16      /* length                          */
   #define DECQUAD_Pmax     34      /* maximum precision (digits)      */
